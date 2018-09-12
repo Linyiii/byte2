@@ -24,18 +24,18 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 
 # This API key is provided by google as described in the tutorial
-API_KEY = 'XXxxXxXXXXxxNXXxXXXxxxNNXXxxxxxxxXXXxXX'
+API_KEY = 'AIzaSyDiMMD9cDCA-vPOxHy1XA5eC-82m1oTwfc'
 
 # This uses discovery to create an object that can talk to the 
 # fusion tables API using the developer key
 service = build('fusiontables', 'v1', developerKey=API_KEY)
 
 # This is the table id for the fusion table
-TABLE_ID = 'NxxxNXxXxxNxXXXXNXxXXXxXxxxNxXxNxXxxXxxX'
+TABLE_ID = '1Lx5AZmSOvyfo_r1irqHe8U-FjAGiDdQXRBMBgw4j'
 
 # This is the default columns for the query
 query_cols = []
-query_values = ['Forlan'] #Change to be the value(s) you're querying in the column you've specified
+query_values = ['AL'] #Change to be the value(s) you're querying in the column you've specified
 
 # Import the Flask Framework
 from flask import Flask, request
@@ -43,7 +43,7 @@ app = Flask(__name__)
 
 def get_all_data(query):
     #Example from the assignment instructions
-    #query = "SELECT * FROM " + TABLE_ID + " WHERE  Scorer = 'Forlan' LIMIT 2"
+    #query = "SELECT 'INSTNM', 'CITY', 'STABBR', 'ACCREDAGENCY', 'HIGHDEG'  FROM " + TABLE_ID + " WHERE  STABBR = 'MA' LIMIT 500"
     #response = service.query().sql(sql=query).execute()
     #logging.info(response['columns'])
     #logging.info(response['rows'])
@@ -57,7 +57,7 @@ def get_all_data(query):
 def make_query(cols, values, limit):
     string_cols = ""
     if cols == []:
-        cols = ['*']
+        cols = ['INSTNM','CITY', 'STABBR', 'ACCREDAGENCY', 'HIGHDEG']
     for col in cols:
         if (' ' in col) == True:
             string_cols = string_cols + ", '" + col + "'" #Columns that are more than one word need to be wrapped in single quotes
@@ -71,7 +71,7 @@ def make_query(cols, values, limit):
     string_values = string_values[2:len(string_values)]
     
     #Change this query to have your corresponding column (in our soccer example, the column for our WHERE is Scorer).
-    query = "SELECT " + string_cols + " FROM " + TABLE_ID + " WHERE Scorer = '" + string_values + "'"
+    query = "SELECT " + string_cols + " FROM " + TABLE_ID + " WHERE ACCREDAGENCY = '" + "Southern Association of Colleges and Schools Commission on Colleges" + "'"
 
     query = query + " LIMIT " + str(limit)
 
@@ -87,7 +87,7 @@ def make_query(cols, values, limit):
 def index():
     template = JINJA_ENVIRONMENT.get_template('templates/index.html')
     request = service.column().list(tableId=TABLE_ID)
-    res = get_all_data(make_query([], query_values, 5)) #5 is our limit we're passing in
+    res = get_all_data(make_query([], query_values, 7593)) #5 is our limit we're passing in
     logging.info('allheaders')
     return template.render(columns=res['columns'], rows = res['rows'] )
 
@@ -96,7 +96,7 @@ def update_table():
     logging.info(request.get_json())
     cols = request.json['cols']
     logging.info(cols)
-    result = get_all_data(make_query(cols, query_values, 100))
+    result = get_all_data(make_query(cols, query_values, 7593))
     logging.info(result)
     return json.dumps({'content' : result['rows'], 'headers' : result['columns']})
 

@@ -46,7 +46,12 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
 	<h1>Quality: About This Data Set</h1>
-        <p>Write a brief summary about the quality of the data set here</a></p>
+        <p>Since the two aspect of this 2015-2016 dataset we focus on - highest degree and location of the
+        schools accredited by SACSCOC are hard to verified against with information online. So
+        we compare them with data in 2018 and hand checked with a small sample of schools
+        with highest degrees from their websites.
+        Overall the data seems to be in good quality and with some minor concerns that
+        we will discuss in more details below.</a></p>
       </div>
 
     
@@ -54,6 +59,20 @@
 	<h2>Is the data complete?</h2>
 	<p>If not, what is missing and what concerns does it raise?
 	What is your evidence for this?</p>
+	<p> The dataset gives 857 intitutions accredited by Southern Association of Colleges and 
+	Schools Commission on Colleges(SACSCOC). And this dataset seems to include every school accredited 
+	by this association, since I have checked all the school that were accredited by this association
+	in 2018 from this link: http://www.sacscoc.org/search.asp (clicked on "search all school"). And
+	there are 794 insitutions. There is no information online about how many institutions were
+	accredited by this association in 2015. So we can only conclude that, assuming the number of
+	institutions accredited by SACSCOC does not change much each year, the dataset seems to be complete
+	since the number of schools from this dataset is roughly the same as the number on official record of
+	year 2018.
+	</p>
+	<p>
+	Conerns that could be raised if this dataset is incomplete is that we could be missing schools that are
+	outside of states that SACSCOC claims to be in charge of.
+	</p>
       </div>
       
       <div class="page-header">
@@ -61,12 +80,30 @@
 	<p>Does it make sense relative to itself? Does it match your
 	expectations? Are the distributions sensible? What is your
 	evidence for this?</p>
+	<p> Yes it does make sense since most of the schools are in the seven
+	states SACSCOC claims to in charge of. If we take a look at the map,
+	 most of the schools accredited by SACSCOC are within the eleven states
+	 (Alabama, Florida, Georgia, Kentucky, Louisiana, Mississippi, North Carolina, South Carolina, Tennessee, Texas and Virginia)
+	 they are in charge of. But there are three of them in Ohio, Michigan, Arizona.
+	</p>
       </div>
-
+      
       <div class="page-header">
 	<h2>Is the data correct?</h2>
 	<p>What aspects of this data can you verify? How did you do so? What did
 	you find?</p>
+	<p> As mentioned above, I couldn't find a list of institutions accredited by SACSCOC in 2015,
+	so I searched the three institutions in their database (http://www.sacscoc.org/search.asp) 
+	of this year, but none of them showed up in the search result. There could be two explanations:
+	one is that the dataset is correct in including those three school in 2015-2016 and they are
+	not accredited by SACSCOC in 2018; the other one is that the dataset is incorrect and they shouldn't
+	be included.
+	</p>
+	<p> For the degree offered by each school, there is no information available on SACSCOC and I didn't
+	find a complete dataset with such informatoin online. As a rsult, I hand
+	checked that with several school's websites and they are correct. Whether the dataset is correct about
+	HIGHDEG is not comepletely verified.
+	</p>
       </div>
 
     </div> <!-- /container -->

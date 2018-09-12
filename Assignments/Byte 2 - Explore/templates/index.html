@@ -48,12 +48,28 @@
 	<h1>Interactive Data Science Project Exploratory Analysis Byte Example</h1>
         <p>This is the Exploratory Analysis Byte of the Interactive Data Science class.</p>
       </div>
-      
+      <p>We filtere the data of schools on College Scoreboard by accredit agency. And only leave
+      thoes that were accredited by Southern Association of Colleges and 
+		Schools Commission on Colleges(SACSCOC)</p>
+		<p>We also label each school on the map by the highest degree program (in year). A <font color="purple"> purple </font> dots means
+		the institution provides four years degree program. And a <font color="green"> green </font> dot
+		means the institution provides only less-than-4-year degree progam.</p>
+		<p> And from the visualization (map) below we can actulally gain some insights into the dataset</p>
+        We can see from the map below that in general there are more institutions with highest
+        degree programs less than four years (yellow icons) accredited by SACSCOC. Also,
+        there are three schools that lies outside of the eleven states SACSCOC is in charge of 
+        (Alabama, Florida, Georgia, Kentucky, Louisiana, Mississippi, North Carolina, South Carolina, Tennessee, Texas and Virginia)</p>
+		</p>
+		
       <div class="page-header">
-	
+	<iframe width="1000" height="800" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col21+from+1lCXsemVuRC0qt2eVNlOoyP0sYA0jy_b7X8bc5kuc&amp;viz=MAP&amp;h=false&amp;lat=32.85084960607664&amp;lng=-86.4056215&amp;t=1&amp;z=6&amp;l=col21&amp;y=2&amp;tmplt=2&amp;hml=TWO_COL_LAT_LNG"></iframe>
       </div> <!-- /page-header -->
     </div> <!-- /container -->
     
+      <div>
+  <p>The table below shows detail of the dataset</p>
+  </div>
+  
     <div class="button-toolbar" role="toolbar" id="headers" name="headers">
       {% for column in columns %}
       <button type="button" class = "btn-space btn btn-info" id="{{column}}" onclick="updateTable('{{column}}')">{{column}}</button>
@@ -70,6 +86,8 @@
 	</tbody>
     </table></div>
   -->
+  
+
   
   <div class="table-responsive">
     <table class="table table-striped table-hover">
